@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="mb-3 mt-3">Mes produits ({{produits|length }}) {% if app.user %}| <a href="{{path('app_produit_new')}}" class="btn btn-sn btn-primary">New</a>{% endif %}</h1>
+    
+    {% for successMessage in app.flashes('success') %}
+    <div class="row">
+        <div class="col-12">
+            <div class="alert alert-success">
+                {{successMessage| raw}}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row"> 
+        {% for produits in produits %}
+        <div class="col-3 mt-3">
+            <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ produits.nom }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">{{ produits.prix }}€</h6>
+                <p class="card-text">{{ produits.description }}</p>
+                <a href="{{path('app_produit_show',{id: produits.id})}}" class="card-link">Afficher le poduits</a>
+            </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+
+
+    </div>
+    <div class="mt-8">
+    </br>
+    </br>
+    <nav  aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+    </nav>
+    </div>
+
+{% endblock %}

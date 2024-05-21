@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="mb-3 mt-3">Mes produits : {{produits.nom}} </h1>
+    <p>Prix : <b>{{produits.prix}} €</b></p>
+    <p>Description : {{produits.description}} </p>
+    <img class="img-fluid"  src="{{produits.img}}" alt="img"  style="width:100%;max-width:400px"/> 
+    </br>
+    <a href="{{path('app_produit')}}" class="btn btn-sn btn-primary">Retour au produits</a>
+{% endblock %}

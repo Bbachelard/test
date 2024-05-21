@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if app.user %}
+<div class="example-wrapper">
+    <h1>Votre compte | <a href="{{path('logout')}}" class="btn btn-sn btn-primary">Se deconnecter</a></h1>
+        </br>
+   
+    <div id="carouselExample" class="carousel slide">
+        <p>Votre nom est : {{user.username}}</p></br>
+        <p>Votre email est : {{user.email}}</p></br>
+        <p>Votre tel est : {{user.tel}}</p></br>
+        
+        <a href="{{path('app_compte_modify_pwd')}}" class="card-link">Changer mot de passe</a>
+</div>
+{% else %}
+    <h1>connecter vous pour acceder au compte</h1>
+{% endif %}
+{% endblock %}

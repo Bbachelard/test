@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1 class="mb-3 mt-3">Creer un produits | <a href="{{path('app_produit')}}" class="btn btn-sn btn-primary">Retour Produits</a></h1>
+
+
+    <div class="row"> 
+        {{form_start(form)}}
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                {{form_widget(form.nom)}}
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                {{form_widget(form.description)}}
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                {{form_widget(form.prix)}}
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                {{form_widget(form.quantite)}}
+            </div>
+        </div>
+         <div class="col-md-6 mb-3">
+            <div class="form-group">
+                {{form_widget(form.img)}}
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Valider a création</button>
+        {{form_end(form)}}
+    </div>
+{% endblock %}
